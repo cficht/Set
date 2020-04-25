@@ -1,0 +1,24 @@
+{
+  "name": "set",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Set.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "test:watch": "npm run test -- --watch",
+    "start": "node Set.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cficht/Set.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cficht/Set/issues"
+  },
+  "homepage": "https://github.com/cficht/Set#readme",
+  "dependencies": {
+    "jest": "^25.4.0"
+  }
+}
