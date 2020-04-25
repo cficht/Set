@@ -26,6 +26,26 @@ class Set {
     return interSet;
   }
 
+  union(set) {
+    const unionSet = new Set();
+    this.items.forEach(item => unionSet.add(item));
+    set.items.forEach(item => {
+      if(!unionSet.items.includes(item)) unionSet.add(item);
+    });
+    return unionSet;
+  }
+
+  difference(set) {
+    const diffSet = new Set();
+    this.items.forEach(item => {
+      if(!set.items.includes(item)) diffSet.add(item);
+    });
+    set.items.forEach(item => {
+      if(!this.items.includes(item)) diffSet.add(item);
+    });
+    return diffSet;
+  }
+
 };
 
 module.exports = { Set };
