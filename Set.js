@@ -13,6 +13,19 @@ class Set {
     return this.items;
   };
 
+  has(item) {
+    if (this.items.includes(item)) return true;
+    return false;
+  }
+
+  intersection(set) {
+    const interSet = new Set();
+    this.items.forEach(item => {
+      if(set.items.includes(item)) interSet.add(item);
+    });
+    return interSet;
+  }
+
 };
 
 module.exports = { Set };

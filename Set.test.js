@@ -1,26 +1,63 @@
 const { Set } = require('./Set');
 
 describe('testing Set.js', () => {
-  const testSet = new Set();
-  console.log(testSet);
 
   it('adds item to the set', () => {
+    const testSet = new Set();
     const testItem = 'Chair';
     expect(testSet.add(testItem)).toEqual([testItem]);
   });
 
   it('does not add duplicates', () => {
+    const testSet = new Set();
     const testItem = 'Chair';
     testSet.add(testItem);
     expect(testSet.add(testItem)).toEqual([testItem]);
   });
 
   it('removes item from the set', () => {
+    const testSet = new Set();
     const testItem = 'Chair';
     const testItem2 = 'Couch';
     testSet.add(testItem);
     testSet.add(testItem2);
     expect(testSet.remove(testItem)).toEqual([testItem2]);
+  });
+
+  it('returns true since item is in set', () => {
+    const testSet = new Set();
+    const testItem = 'Chair';
+    testSet.add(testItem);
+    expect(testSet.has(testItem)).toEqual(true);
+  });
+
+  it('returns false since item is not in set', () => {
+    const testSet = new Set();
+    const testItem = 'Chair';
+    const testItem2 = 'Couch';
+    testSet.add(testItem2);
+    expect(testSet.has(testItem)).toEqual(false);
+  });
+
+  it('returns a new set with the intersection of the two sets', () => {
+    const testSet = new Set();
+    const testSet2 = new Set();
+    const interSet = new Set();
+    const testItem = 'Chair';
+    const testItem2 = 'Couch';
+    const testItem3 = 'Bench';
+    const testItem4 = 'Table';
+
+    testSet.add(testItem);
+    testSet.add(testItem2);
+    testSet.add(testItem3);
+    testSet2.add(testItem2);
+    testSet2.add(testItem3);
+    testSet2.add(testItem4);
+    interSet.add(testItem2);
+    interSet.add(testItem3);
+
+    expect(testSet.intersection(testSet2)).toEqual(interSet);
   });
 
 });
