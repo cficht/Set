@@ -125,4 +125,48 @@ describe('testing Set.js', () => {
     expect(Set.intersection(testSet, testSet2)).toEqual(interSet);
   });
 
+  it('static method that returns a new set with the union of two sets', () => {
+    const testSet = new Set();
+    const testSet2 = new Set();
+    const unionSet = new Set();
+    const testItem = 'Chair';
+    const testItem2 = 'Couch';
+    const testItem3 = 'Bench';
+    const testItem4 = 'Table';
+
+    testSet.add(testItem);
+    testSet.add(testItem2);
+    testSet.add(testItem3);
+    testSet2.add(testItem2);
+    testSet2.add(testItem3);
+    testSet2.add(testItem4);
+    unionSet.add(testItem);
+    unionSet.add(testItem2);
+    unionSet.add(testItem3);
+    unionSet.add(testItem4);
+
+    expect(Set.union(testSet, testSet2)).toEqual(unionSet);
+  });
+
+  it('static method that returns a new set with the difference of two sets', () => {
+    const testSet = new Set();
+    const testSet2 = new Set();
+    const diffSet = new Set();
+    const testItem = 'Chair';
+    const testItem2 = 'Couch';
+    const testItem3 = 'Bench';
+    const testItem4 = 'Table';
+
+    testSet.add(testItem);
+    testSet.add(testItem2);
+    testSet.add(testItem3);
+    testSet2.add(testItem2);
+    testSet2.add(testItem3);
+    testSet2.add(testItem4);
+    diffSet.add(testItem);
+    diffSet.add(testItem4);
+
+    expect(Set.difference(testSet, testSet2)).toEqual(diffSet);
+  });
+
 });

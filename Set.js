@@ -1,4 +1,5 @@
 class Set {
+
   constructor() {
     this.items = [];
   }
@@ -16,7 +17,7 @@ class Set {
   has(item) {
     if (this.items.includes(item)) return true;
     return false;
-  }
+  };
 
   intersection(set) {
     const interSet = new Set();
@@ -24,7 +25,7 @@ class Set {
       if(set.items.includes(item)) interSet.add(item);
     });
     return interSet;
-  }
+  };
 
   union(set) {
     const unionSet = new Set();
@@ -33,7 +34,7 @@ class Set {
       if(!unionSet.items.includes(item)) unionSet.add(item);
     });
     return unionSet;
-  }
+  };
 
   difference(set) {
     const diffSet = new Set();
@@ -52,8 +53,28 @@ class Set {
       if(set2.items.includes(item)) interSet.add(item);
     });
     return interSet;
-  }
+  };
 
+  static union(set1, set2) {
+    const unionSet = new Set();
+    set1.items.forEach(item => unionSet.add(item));
+    set2.items.forEach(item => {
+      if(!unionSet.items.includes(item)) unionSet.add(item);
+    });
+    return unionSet;
+  };
+
+  static difference(set1, set2) {
+    const diffSet = new Set();
+    set1.items.forEach(item => {
+      if(!set2.items.includes(item)) diffSet.add(item);
+    });
+    set2.items.forEach(item => {
+      if(!set1.items.includes(item)) diffSet.add(item);
+    });
+    return diffSet;
+  };
+  
 };
 
 module.exports = { Set };
