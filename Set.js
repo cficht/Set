@@ -46,6 +46,14 @@ class Set {
     return diffSet;
   }
 
+  static intersection(set1, set2) {
+    const interSet = new Set();
+    set1.items.forEach(item => {
+      if(set2.items.includes(item)) interSet.add(item);
+    });
+    return interSet;
+  }
+
 };
 
 module.exports = { Set };

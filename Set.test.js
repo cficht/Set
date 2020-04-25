@@ -104,4 +104,25 @@ describe('testing Set.js', () => {
     expect(testSet.difference(testSet2)).toEqual(diffSet);
   });
 
+  it('static method that returns a new set with the intersection of two sets', () => {
+    const testSet = new Set();
+    const testSet2 = new Set();
+    const interSet = new Set();
+    const testItem = 'Chair';
+    const testItem2 = 'Couch';
+    const testItem3 = 'Bench';
+    const testItem4 = 'Table';
+
+    testSet.add(testItem);
+    testSet.add(testItem2);
+    testSet.add(testItem3);
+    testSet2.add(testItem2);
+    testSet2.add(testItem3);
+    testSet2.add(testItem4);
+    interSet.add(testItem2);
+    interSet.add(testItem3);
+
+    expect(Set.intersection(testSet, testSet2)).toEqual(interSet);
+  });
+
 });
